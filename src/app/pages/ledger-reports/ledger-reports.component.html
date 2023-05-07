@@ -1,0 +1,145 @@
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ <style>.pagetitle label.form-label {
+    margin: 0;
+}.pagetitle button.btn.btn-primary {
+    padding: 13px 10px !important;width: 100%;
+}table.maintable {
+    width: 100%;
+}thead {
+    background: #F1FCFA;
+}thead tr {
+   border-radius: 6px;
+}table.maintable td, table.maintable th {
+    padding: 20px;
+}table.maintable tbody tr {
+    border-bottom: 1px solid #E9E9E9;
+}.pagetitle select.form-control {
+    height: 55px !important;
+}</style>
+ <div class="innerdash pagetitle">
+  <div class="row" style="align-items: center;">
+    <div class="col-md-9">
+    <h1>General Ledger Reports</h1></div>
+
+    <div class="col-md-3">
+      <form id="formCreatecompany" class="mb-3 mt-4 commform row" style="align-items: flex-end;">        
+          <div class=""><button type="submit" class="btn btn-primary">Print Report</button></div>
+
+      </form>
+    </div>
+
+    <div class="col-md-12 ">
+<form id="formCreatecompany" class="mb-3 mt-4 commform row" style="align-items: flex-end;padding:0">
+        <div class="col-md-4">
+                <label for="name" class="form-label">Financial Year</label>
+                <select class="form-control">
+                  <option>By Vendor Name</option>
+                </select>
+          </div>
+        <div class="col-md-4">
+                <label for="name" class="form-label">Business Unit</label>
+                <select class="form-control">
+                  <option>By Date</option>
+                </select>
+          </div>
+        <div class="col-md-4">
+                <label for="name" class="form-label">Site Name</label>
+                <select class="form-control">
+                  <option>Payment Status</option>
+                </select>
+          </div>
+
+      </form>
+    </div>
+<div class="col-md-12 ">
+<form id="formCreatecompany" class="mb-3 mt-4 commform row" style="align-items: flex-end;padding:0">
+        <div class="col-md-4">
+                <label for="name" class="form-label">Charter of Accounts</label>
+                <select class="form-control">
+                  <option>By Vendor Name</option>
+                </select>
+          </div>
+        <div class="col-md-4">
+                <label for="name" class="form-label">Start Date & End Date</label>
+                <select class="form-control">
+                  <option>By Date</option>
+                </select>
+          </div>
+        <div class="col-md-4">
+                <label for="name" class="form-label">Transaction</label>
+                <select class="form-control">
+                  <option>Payment Status</option>
+                </select>
+          </div>
+
+      </form>
+    </div>
+          </div>
+  </div><!-- End Page Title -->
+  <section class="section dashboard">
+    <div class="row">
+      <div class="innerform">
+        <div class="col-md-12">
+         <div class="tablemaindiv mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+           class="mat-elevation-z8 maintable">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="acc">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+              Account Number
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.acc}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="aname">
+            <th mat-header-cell *matHeaderCellDef> Account Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.aname}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="deb">
+            <th mat-header-cell *matHeaderCellDef> Debited amt. </th>
+            <td mat-cell *matCellDef="let element"> {{element.deb}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="cre">
+            <th mat-header-cell *matHeaderCellDef> Credited amt. </th>
+            <td mat-cell *matCellDef="let element"> {{element.cre}}  </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tdate">
+            <th mat-header-cell *matHeaderCellDef> Transaction Date </th>
+            <td mat-cell *matCellDef="let element">  {{element.tdate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bal1">
+            <th mat-header-cell *matHeaderCellDef> Location</th>
+            <td mat-cell *matCellDef="let element"> {{element.bal1}}  </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bal2">
+            <th mat-header-cell *matHeaderCellDef> Balance </th>
+            <td mat-cell *matCellDef="let element">  {{element.bal2}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cur">
+            <th mat-header-cell *matHeaderCellDef> Currency </th>
+            <td mat-cell *matCellDef="let element"> {{element.cur}}  </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10,20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>

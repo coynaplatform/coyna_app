@@ -1,0 +1,319 @@
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ <style>.pagetitle label.form-label {
+    margin: 0;
+}.pagetitle button.btn.btn-primary {
+    padding: 13px 10px !important;width: 100%;
+}table.maintable {
+    width: 100%;
+}thead {
+    background: #F1FCFA;
+}thead tr {
+   border-radius: 6px;
+}table.maintable td, table.maintable th {
+    padding: 20px 10px;
+}table.maintable tbody tr {
+    border-bottom: 1px solid #E9E9E9;
+}input.form-control {
+    padding: 10px 5px !important;
+    height: 40px !important;
+    font-size: 13px !important;
+}input.form-control:disabled {
+    background: #C4C4C4 !important;
+}.pagetitle select.form-control {
+    height: 55px !important;
+}th.centeral {
+    text-align: center;
+}.noborder tr {
+    border: 0 !important;
+}table.maintable.withborder td {
+    border-left: 1px solid #E9E9E9 !important;
+    border-right: 1px solid #E9E9E9 !important;
+}.disflexbtn {
+    display: flex;
+    align-items: center;
+}.maintable .disflexbtn button.btn {
+    padding: 5px 12px !important;
+    height: 40px;
+    margin-left: 10px;
+}.lesspad td {
+    padding: 10px 10px !important;
+}</style>
+
+ <div class="innerdash pagetitle">
+  <div class="row" style="align-items: center;">
+    <div class="col-md-12" style="padding:0;">
+    <h1>Shift Sheet</h1></div>
+
+      <form id="formCreatecompany" class="mb-3 mt-4 commform row" style="align-items: flex-end;padding:0">
+    <div class="col-md-10 row">
+        <div class="col-md-3">
+                <label for="name" class="form-label">Select</label>
+                <select class="form-control">
+                  <option>Fuel Grade</option>
+                </select>
+          </div>
+        <div class="col-md-3">
+                <label for="name" class="form-label">From</label>
+                <select class="form-control">
+                  <option>Date</option>
+                </select>
+          </div>
+        <div class="col-md-3">
+                <label for="name" class="form-label">To</label>
+                <select class="form-control">
+                  <option>Date</option>
+                </select>
+          </div>
+          <div class="col-md-3">
+                <label for="name" class="form-label">Select</label>
+                <select class="form-control">
+                  <option>By Shift</option>
+                </select>
+          </div>
+
+    </div>
+
+          <div class="col-md-2"><button type="submit" class="btn btn-primary">Export</button></div>
+      </form>
+  </div>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+      <div class="innerform col-md-6">
+        <div class="tablemaindiv mat-elevation-z8">
+            <table class="maintable withborder lesspad">
+                <thead>
+                    <tr>
+                        <th>COLLECTION</th>
+                        <th>POS1</th>
+                        <th>POS2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-left:0px !important;">SHIFT NO.</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">POS</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">MANUALS</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">A/R ACCOUNTS</td>
+                        <td colspan="2">
+                            <div class="disflexbtn"><input type="text" class="form-control" placeholder="" disabled /><button class="btn btn-primary">+</button></div></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">PAYOUTS</td>
+                        <td colspan="2">
+                            <div class="disflexbtn"><input type="text" class="form-control" placeholder="" disabled /><button class="btn btn-primary">+</button></div></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">CANADIAN DOLLAR</td>
+                        <td colspan="2">
+                            <div class="disflexbtn"><input type="text" class="form-control" placeholder="" disabled /><button class="btn btn-primary">+</button></div></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">US DOLLAR</td>
+                        <td colspan="2">
+                            <div class="disflexbtn"><input type="text" class="form-control" placeholder="" disabled /><button class="btn btn-primary">+</button></div></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">DRIVE OFF</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">POINT GAS</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">COUPON</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">TOTAL</td>
+                        <td colspan="2"><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+      <div class="innerform col-md-6">
+        <div class="tablemaindiv mat-elevation-z8">
+            <table class="maintable withborder lesspad">
+                <thead>
+                    <tr>
+                        <th>MTD</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-left:0px !important;">TOBCCO</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">LOTTO</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">PREPAID CARDS</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">CIGARETTES</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">OTHERS</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">STORE CASH</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">ATM</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">BANK DEPOSIT</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">US DOLLAR</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">SWIPE RATE </td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+    </div>
+</section><br/>
+<section class="section dashboard">
+    <div class="row">
+      <div class="innerform col-md-6">
+        <div class="tablemaindiv mat-elevation-z8">
+            <table class="maintable withborder lesspad">
+                <thead>
+                    <tr>
+                        <th>SALES</th>
+                        <th>POS1</th>
+                        <th>POS2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-left:0px !important;">ITEMS SALES</td>
+                        <td><input type="text" class="form-control" placeholder="ITEMS SALES 1" /></td>
+                        <td><input type="text" class="form-control" placeholder="ITEMS SALES 2" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">FUEL SALES</td>
+                        <td><input type="text" class="form-control" placeholder="FUEL SALES 1" disabled /></td>
+                        <td><input type="text" class="form-control" placeholder="FUEL SALES 2" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">DISCOUNT</td>
+                        <td><input type="text" class="form-control" placeholder="DISCOUNT 1" /></td>
+                        <td><input type="text" class="form-control" placeholder="DISCOUNT 2" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">PENNY ROUNDING</td>
+                        <td><input type="text" class="form-control" placeholder="PENNY ROUNDING 1" /></td>
+                        <td><input type="text" class="form-control" placeholder="PENNY ROUNDING 2" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">GST</td>
+                        <td><input type="text" class="form-control" placeholder="GST 1" disabled /></td>
+                        <td><input type="text" class="form-control" placeholder="GST 2" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">PST</td>
+                        <td><input type="text" class="form-control" placeholder="PST 1" disabled /></td>
+                        <td><input type="text" class="form-control" placeholder="PST 2" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">CASH +/-</td>
+                        <td><input type="text" class="form-control" placeholder="0.00" disabled /></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+      <div class="innerform col-md-6">
+        <div class="tablemaindiv mat-elevation-z8">
+            <table class="maintable withborder lesspad">
+                <thead>
+                    <tr>
+                        <th>FSR</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-left:0px !important;">COFFEE</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">$1 REDEMPTION</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">WWF</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">WATER</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">PETRO POINTS</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">TOTAL TRANSACTION</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">FUEL TRANSACTION</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">UNDO KEY HITS</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">CLEAR KEY HITS</td>
+                        <td><input type="text" class="form-control" placeholder="" disabled /></td>
+                    </tr>
+                    <tr>
+                        <td style="border-left:0px !important;">CASH DRAWER OPEN</td>
+                        <td><input type="text" class="form-control" placeholder="" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+    </div>
+    </section>

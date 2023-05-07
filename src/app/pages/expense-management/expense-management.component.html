@@ -1,0 +1,207 @@
+<div class="innerdash pagetitle">
+    <div class="row">
+        <h1>Expense Management</h1>
+    </div>
+</div><!-- End Page Title -->
+<section class="section dashboard">
+    <div class="row">
+        <div class="innerform">
+            <div class="col-md-12">
+                <form id="formCreatecompany" class="mb-3 mt-1 commform row" [formGroup]="expenseForm">
+                    <div class="row mb-3">
+                        <div class="innerfheader mb-1">
+                            <h4>Employee Information</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Employee Name</label>
+                                <input class="form-control" formControlName="eName"
+                                       placeholder="Mr. Johan" OnlyCharacterWithSpace
+                                       [ngClass]="{'is-invalid': submitted && f['eName'].errors}"/>
+                                <span *ngIf="submitted && f['eName'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['eName'].errors['required']"> Employee name is required</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Level</label>
+                                <select class="form-control" formControlName="levelName" placeholder=""
+                                        [ngClass]="{'is-invalid': submitted && f['levelName'].errors}">
+                                    <option value="">Select</option>
+                                    <option value="level_1">Level 1</option>
+                                    <option value="level_2">Level 2</option>
+                                    <option value="level_3">Level 3</option>
+                                    <option value="level_4">Level 4</option>
+                                </select>
+
+                                <span *ngIf="submitted && f['levelName'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['levelName'].errors['required']"> Level is required</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+ <div class="col-md-4 mb-3">
+                            <label for="name" class="form-label">Company Name</label>
+                            <select class="form-control">
+                                <option value="">Select Company</option>
+                            </select>
+                        </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <label for="name" class="form-label">Store</label>
+                                <select class="form-control">
+
+                                    <option value="">Select Store</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="innerfheader mb-1">
+                            <h4>Expense Information</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Date of Expense</label>
+                                <input type="date" class="form-control" formControlName="travelDate" placeholder=""
+                                       [ngClass]="{'is-invalid': submitted && f['travelDate'].errors}"/>
+                                <span *ngIf="submitted && f['travelDate'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['travelDate'].errors['required']"> Date of Expense is required</span>
+                                </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Total Expenses</label>
+                                <input type="text" class="form-control" formControlName="totalExpenses" placeholder=""
+                                       financeOnly
+                                       [ngClass]="{'is-invalid': submitted && f['totalExpenses'].errors}"/>
+                                <span *ngIf="submitted && f['totalExpenses'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['totalExpenses'].errors['required']"> Total  expenses is required</span>
+                                </span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload Receipt</label>
+                                <input type="file" class="form-control" formControlName="uploadDoc" multiple
+                                    id="uploadDoc"   (change)="onSelectFile($event, 'receipt')"
+                                       [ngClass]="{'is-invalid': submitted && f['uploadDoc'].errors}"/>
+                                <span *ngIf="submitted && f['uploadDoc'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['uploadDoc'].errors['required']"> Receipt is required</span>
+                                </span>
+
+                                <span *ngFor="let item of fileNames; let index = index ">
+                                    <span *ngIf="item.type == 'receipt'">   {{ item.name }}
+                                        <button (click)="removeSelectedFile(index)">Delete</button>
+                                    </span>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Expense Description</label>
+                                <input type="text" class="form-control" formControlName="travelLocation"
+                                       isAlphaNumericWithSpace
+                                       [ngClass]="{
+                                   'is-invalid': submitted && f['travelLocation'].errors}">
+                                <span *ngIf="submitted && f['travelLocation'].errors" class="invalid-feedback">
+                          <span *ngIf="f['travelLocation'].errors['required']"> Expense Description  is required</span>
+                          </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Chart of Accounts</label>
+                                <select class="form-control">
+                                    <option>Select</option>
+                                </select>
+                                <!-- <input class="form-control" formControlName="receiptInformation" placeholder=""
+                                       [ngClass]="{'is-invalid': submitted && f['receiptInformation'].errors}"/>
+                                <span *ngIf="submitted && f['receiptInformation'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['receiptInformation'].errors['required']"> Chart of Accounts is required</span>
+                                </span> -->
+                            </div>
+
+<!--                            <img *ngFor='let url of urls'  [src]="url" height="200"> <br/>-->
+<!--                            <pdf-viewer  [src]="pdfSource"-->
+<!--                                        [original-size]="false"-->
+<!--                            ></pdf-viewer>-->
+
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="innerfheader mb-1">
+                            <h4>Approval Information</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Approval Date</label>
+                                <input type="date" class="form-control" formControlName="approvalDate" placeholder=""
+                                       [ngClass]="{'is-invalid': submitted && f['approvalDate'].errors}"/>
+                                <span *ngIf="submitted && f['approvalDate'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['approvalDate'].errors['required']"> Approval date is required</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Approved By</label>
+                                <input type="text" class="form-control" formControlName="approvedBy"
+                                       isAlphaNumericWithSpace
+                                       [ngClass]="{
+                                   'is-invalid': submitted && f['approvedBy'].errors}">
+
+                                <span *ngIf="submitted && f['approvedBy'].errors" class="invalid-feedback">
+                          <span *ngIf="f['approvedBy'].errors['required']"> Approved by  is required</span>
+                          </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="innerfheader mb-1">
+                            <h4>Payment Information</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Payment Date</label>
+                                <input type="date" class="form-control" formControlName="paymentDate" placeholder=""
+                                       [ngClass]="{'is-invalid': submitted && f['paymentDate'].errors}"/>
+                                <span *ngIf="submitted && f['paymentDate'].errors" class="invalid-feedback">
+                                    <span *ngIf="f['paymentDate'].errors['required']"> Payment date is required</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Payment Mode</label>
+                                <select class="form-control" formControlName="paymentMode" [ngClass]="{
+                                   'is-invalid': submitted && f['paymentMode'].errors}">
+                                    <option value="">Select Payment</option>
+                                    <option value="Online">Online</option>
+                                    <option value="EFT (Electronic Fund Transfer)">EFT (Electronic Fund Transfer)</option>
+                                    <option value="Cheque">Cheque</option>
+                                </select>
+                                <span *ngIf="submitted && f['paymentMode'].errors" class="invalid-feedback">
+                          <span *ngIf="f['paymentMode'].errors['required']"> Payment Mode  is required</span>
+                          </span>
+                            </div>
+                        </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Upload Invoice</label>
+                                <input type="file" class="form-control" formControlName="uploadDoc" multiple
+                                       id="uploadInvoice"   (change)="onSelectFile($event, 'invoice')"/>
+                            </div>
+                        <span *ngFor="let item of fileNames; let index = index ">
+                                    <span *ngIf="item.type == 'invoice'">   {{ item.name }}
+                                        <button (click)="removeSelectedFile(index)">Delete</button>
+                                    </span>
+
+                                </span>
+                    </div>
+                    <div class="mt-3 mb-3">
+                        <button type="submit" class="btn btn-primary btnarraow" (click)="saveExpense()">
+                            Save<span class="barraow"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

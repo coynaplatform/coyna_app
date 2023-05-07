@@ -1,0 +1,87 @@
+
+
+<!-- <button (click)="submit()" style="background: #2dce89; width: 100px;">button</button> -->
+<div class="login_container">
+    <a href="javascript:;" class="loginpglogo"><img src="assets/img/Logo.png"></a>
+    <div class="login_sec">
+        <div class="authentication-inner">
+            <!-- Register -->
+            <h4 class="mb-2 logintitle">Log In</h4>
+            <p class="mb-4 logindet">Login to the page to access your vendor dashboard</p>
+            <div class="card">
+                <div class="card-body">
+                    <div class="loading">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <h3 class="lccbhd mb-3">We're glad to see you again!</h3>
+                    
+                    <form id="formAuthentication" class="mb-3" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="text" class="form-control" id="email" name="email-username"
+                                    placeholder="User Name"
+                                   formControlName="userName" autofocus
+                                   [ngClass]="{
+                                   'is-invalid': submitted && f['userName'].errors,
+                                    'is-valid': submitted && !f['userName'].errors}"/>
+
+                            <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['userName'].errors['required']">UserName is required</div>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-password-toggle">
+                            <div class="d-flex justify-content-between">
+                                <label class="form-label" for="password">Password</label>
+                            </div>
+                            <div class="input-group input-group-merge">
+                                <input
+                                        [type]="passwordType"
+                                        id="password"
+                                        class="form-control"
+                                        name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password"
+                                        formControlName="password" autofocus
+                                        [ngClass]="{
+                                        'is-invalid': submitted && f['password'].errors,
+                                         'is-valid': submitted && !f['password'].errors}"
+                                />
+                                <span class="input-group-text cursor-pointer" (click)="passwordVisibility('password')">
+                                    <i [ngClass]="passwordType == 'password' ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                                       aria-hidden="true"></i>
+                                </span>
+
+                                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="d-flex justify-content-between">
+<!--                                <div class="form-check">-->
+<!--                                <input class="form-check-input" type="checkbox" id="remember-me" />-->
+<!--                                <label class="form-check-label textdarkcolor jostfont textsmall" for="remember-me jostfont"> Remember me </label>-->
+<!--                            </div>-->
+                                <a routerLink="/forgot-password" class="midblackcolor jostfont textsmall">
+                                    <small>Lost your password?</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary d-block w-100" type="submit" >Log In <img src="assets/img/buttonarrow.png" class="btnafter"></button>
+                        </div>
+
+                    </form>
+
+                    
+                </div>
+            </div>
+            <!-- /Register -->
+        </div>
+    </div>
+</div>
+
