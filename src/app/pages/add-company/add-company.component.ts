@@ -84,7 +84,7 @@ export class CompanyComponent {
             "companyId": "",
             "name": this.companyForm.value.companyName ,
             "companyType": this.companyForm.value.typeOfService ,
-            "parentCompanyId": "",
+        //    "parentCompanyId": "",
             "gst": this.companyForm.value.gst,
             "memo": this.companyForm.value.description ,
             "createdBy": "",
