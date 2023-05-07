@@ -3,6 +3,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort, Sort} from '@angular/material/sort';
+import { CompanyService } from 'src/app/shared';
 
 
 export interface PeriodicElement {
@@ -32,10 +33,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./company.component.scss']
 })
 export class CompanylComponent {
-   displayedColumns: string[] = ['sno', 'products', 'pos1', 'pos2', 'pos3'];
+   displayedColumns: string[] = ['name', 'companyType', 'pos2', 'pos3'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-    constructor(private _liveAnnouncer: LiveAnnouncer) {
+    constructor(private _liveAnnouncer: LiveAnnouncer, private companyService: CompanyService) {
     }
 
     // @ts-ignore
@@ -43,11 +44,13 @@ export class CompanylComponent {
     // @ts-ignore
     @ViewChild(MatSort) sort: MatSort;
 
+    ngOnInit(){
+        this.getCompanies()
+    }
     ngAfterViewInit() {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
     }
-
 
     /** Announce the change in sort state for assistive technology. */
     announceSortChange(sortState: Sort) {
@@ -61,4 +64,13 @@ export class CompanylComponent {
             this._liveAnnouncer.announce('Sorting cleared');
         }
     }
+
+    getCompanies() {
+        this.companyService.getCompany().subscribe(res => {
+            if (res.code == "1") {
+                this.dataSource.data = res.results;
+            }
+        })
+    }
+
 }
