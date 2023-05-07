@@ -6,7 +6,7 @@ import { InvoiceComponent } from "./invoice-management.component";
 import {FinanceOnlyDirective, InvoiceManagementService, NumbersOnlyDirective,
     CharacterDirective, AlphabetOnlyDirective, CompanyService} from "../../shared";
 import {MaterialComponentsModule} from "../../material.module";
-import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+//import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 @NgModule({
     declarations: [
@@ -14,8 +14,8 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
         NumbersOnlyDirective,
         FinanceOnlyDirective,
         CharacterDirective,
-        AlphabetOnlyDirective,
-        EditInvoiceComponent,
+        AlphabetOnlyDirective
+      //  EditInvoiceComponent,
     ],
     imports: [
         CommonModule,

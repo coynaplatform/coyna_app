@@ -39,7 +39,8 @@ import {WeeklypcloseComponent} from "./pages/weekly-physical-closing/weekly-phys
 import {ProjmgntComponent} from "./pages/project-management/project-management.component";
 import {StoremgntComponent} from "./pages/store-management/store-management.component";
 import { AddStore } from "./pages/store-management/add-store/add-store.component";
-import {EditInvoiceComponent} from "./pages/invoice-management/edit-invoice/edit-invoice.component";
+import { CommonModule } from '@angular/common';
+//import {EditInvoiceComponent} from "./pages/invoice-management/edit-invoice/edit-invoice.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -69,7 +70,7 @@ const routes: Routes = [
             {path: 'company-detail', component: CompanydComponent},
             {path: 'store-detail', component: StoredComponent},
             {path: 'invoice-details/:id', component: InvoicedComponent},
-            {path: 'invoice-edit/:id', component: EditInvoiceComponent},
+            //{path: 'invoice-edit/:id', component: EditInvoiceComponent},
             {path: 'invoice-management', component: InvoiceComponent},
             {path: 'payment-processing', component: PaymentComponent},
             {path: 'invoice-listing', component: AccountComponent},
@@ -103,7 +104,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes), CommonModule],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
